@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class book extends Controller
 {
-    public function Homepage () {
-        return view("tst" ,['name: ' => 'Poe']);
-    }
-    public function Aboutpage () {
-        return ('About Page');
-    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $books = [
@@ -32,16 +31,11 @@ class HomeController extends Controller
                 'title' => 'The Game',
                 'author' => 'Yen',
                 'year' => 1987
-            ],
-            [
-            'id'=> 4,
-            'title' => 'The Light',
-            'author' => 'Ford',
-            'year' => 2007
             ]
 
             ];
 
-            return view('index',['books'=>$books]);
+            return view('books.index',['books'=>$books]);
     }
+
 }

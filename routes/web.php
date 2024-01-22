@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get('/home' , [HomeController::class, 'Homepage']);
 Route::get('/about', [HomeController::class, 'Aboutpage']);
+Route::get('/book', [HomeController::class, 'index']);
