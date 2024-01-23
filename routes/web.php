@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home' , [HomeController::class, 'Homepage']);
-Route::get('/about', [HomeController::class, 'Aboutpage']);
-Route::get('/book', [HomeController::class, 'index']);
+Route::get('/book', [BookController::class, 'index']);
+Route::get('/book/(id)', [BookController::class,'show']);
+Route::get('/book/create', [BookController::class,'create']);
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

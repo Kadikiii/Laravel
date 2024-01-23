@@ -6,42 +6,23 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function Homepage () {
-        return view("tst" ,['name: ' => 'Poe']);
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
-    public function Aboutpage () {
-        return ('About Page');
-    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
-        $books = [
-            [
-                'id' => 1,
-                'title' => 'The Hobbit',
-                'author' => 'Morris',
-                'year' => 1937
-            ],
-            [
-                'id' => 2,
-                'title' => 'The Lord of the Rings',
-                'author' => 'James',
-                'year' => 1954
-            ],
-            [
-                'id'=> 3,
-                'title' => 'The Game',
-                'author' => 'Yen',
-                'year' => 1987
-            ],
-            [
-            'id'=> 4,
-            'title' => 'The Light',
-            'author' => 'Ford',
-            'year' => 2007
-            ]
-
-            ];
-
-            return view('index',['books'=>$books]);
+        return view('home');
     }
 }
